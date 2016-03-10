@@ -3,14 +3,16 @@
 #include "sensors.h"
 
 /* Set Pins */
-
+/* Temperature */
 OneWire oneWire1(_PIN_AMB_TEMP);
 DallasTemperature dallas_amb_sen(&oneWire1);
 OneWire oneWire2(_PIN_ROOF_TEMP);
 DallasTemperature dallas_roof_sen(&oneWire2);
 
+/* Humidity */
 SHT1x sht1x(_PIN_HUMID_DATA, _PIN_HUMID_CLK);
 
+/* Pressure and Solar Irradiance */
 Adafruit_BMP085 bmp085;
 Adafruit_INA219 ina219_Solar;
 
