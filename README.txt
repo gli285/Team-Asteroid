@@ -1,29 +1,24 @@
-Team Asteroid 
+# Team Asteroid Weatherbox
 
-SCEL Weatherbox
+SCEL Weatherbox prototyping team
+Weatherbox firmware
 
-Watherbox firmware
+# Milestones
 
-Milestones
+**Goal (Spring 2016):** Implementation code for weatherbox, get modular firmware by the end of the semester
 
-Goal: get working, modular firmware by the end of the semester
+1. Sensor code (integration one by one)
+2. Xbee transmit code
 
-    Understand requirements
-    Get organized, setup local development environment. Make sure you know how to use github.
-    Software plan
-    Basic working firmware
-    Sensor integration (one by one)
-
-Contributing
+# Contributing
 
 See the github flow for more information: https://guides.github.com/introduction/flow/
 
-    Create a new branch
-    Do some development
-    Finish development
-    Submit a pull request (we will do a code review together)
+1. Create a new branch
+2. Do some development
+3. Finish development
+4. Submit a pull request (we will do a code review together)
 
-Warnings
+# Warnings
 
-    Do NOT commit to the master branch, always use your own branch
-
+* Do NOT commit to the master branch, always use your own branch
