@@ -23,18 +23,12 @@
 
 /* Solar Irradiance */
 #define _PIN_APOGEE_V A2
-extern DallasTemperature dallas_amb_sen;
-
-extern SHT1x sht1x;
-
-extern Adafruit_BMP085 bmp085;
-extern Adafruit_INA219 ina219_Solar;
 
 /* Prototypes */
 void Sensors_init(void);
 int Sensors_sampleBatterymV(void);
-int Sensors_samplePanelmV(void)
 int Sensors_samplePressurepa(void);
+int Sensors_samplePanelmV(void)
 int Sensors_sampleHumiditypct(void);
 int Sensors_sampleSolarIrrmV(void);
 int Sensors_sampleTemperaturedecic(void);
