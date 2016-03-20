@@ -26,7 +26,7 @@ void Sensors_init(void)
 {
 	bmp085.begin();
     ina219_Solar.begin();	
-    oneWire.begin();
+    dallas_sen.begin();
 }
 
 /********************************
@@ -190,5 +190,4 @@ float Sensors_sampleTemperaturedecic(void)
     //return fahrenheit;
 }
 
-}
 
