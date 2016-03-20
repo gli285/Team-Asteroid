@@ -19,18 +19,6 @@
 #include <Adafruit_INA219.h>
 #include <Adafruit_BMP085.h>
 
-/* Creating instances of objects */
-OneWire oneWire1;
-DallasTemperature dallas_amb_sen;
-
-OneWire oneWire2;
-DallasTemperature dallas_roof_sen;
-
-SHT1x sht1x;
-
-Adafruit_BMP085 bmp085;
-Adafruit_INA219 ina219_Solar;
-
 /* Setup to initialize system. Initialies sensors, runs once */
 void setup()
 {

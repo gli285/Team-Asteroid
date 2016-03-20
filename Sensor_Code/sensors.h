@@ -1,5 +1,9 @@
 /* sensors.h */
 
+/* Check for previous includes */
+#ifndef SENSORS_H
+#define SENSORS_H
+
 /* Arduino libraries */
 #include <Wire.h>
 #include <SoftwareSerial.h>
@@ -18,8 +22,11 @@
 /* Battery */
 #define _PIN_BATT_V A3
 
-/* Panel/Battery Voltage */
+/* Panel Voltage */
 #define _PIN_SOLAR_V A1
+
+/* Temperature */
+#define _PIN_ROOF_TEMP 3
 
 /* Solar Irradiance */
 #define _PIN_APOGEE_V A2
@@ -31,4 +38,4 @@ int Sensors_samplePressurepa(void);
 int Sensors_samplePanelmV(void)
 int Sensors_sampleHumiditypct(void);
 int Sensors_sampleSolarIrrmV(void);
-int Sensors_sampleTemperaturedecic(void);
+float Sensors_sampleTemperaturedecic(void);

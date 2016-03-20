@@ -4,10 +4,8 @@
 
 /* Set Pins */
 /* Temperature */
-OneWire oneWire1(_PIN_AMB_TEMP);
-DallasTemperature dallas_amb_sen(&oneWire1);
-OneWire oneWire2(_PIN_ROOF_TEMP);
-DallasTemperature dallas_roof_sen(&oneWire2);
+OneWire oneWire(_PIN_ROOF_TEMP);
+DallasTemperature dallas_sen(&oneWire);
 
 /* Humidity */
 SHT1x sht1x(_PIN_HUMID_DATA, _PIN_HUMID_CLK);
@@ -28,6 +26,7 @@ void Sensors_init(void)
 {
 	bmp085.begin();
 	ina219_Solar.begin();	
+    dallas_sen.begin();
 }
 
 /********************************
@@ -107,9 +106,89 @@ int Sensors_sampleSolarIrrmV(void)
  * Description: Checks the current temperature
  *
  * ******************************/	
-int Sensors_sampleTemperaturedecic(void)
+float Sensors_sampleTemperaturedecic(void)
 {
-	int value = bmp085.readTemperature()*10;
-	return value;
+    byte i;
+    byte present = 0;
+    byte type_s;
+    bute data[12];
+    byte addr[8];
+    float celsius, fahrenheit;
+
+    if(!dallas_sen.search(addr))
+    {
+        Serial.println();
+        dallas_sen.reset_search();
+    }
+
+    if(OneWire::crc8(addr, 7) != addr[7])
+    {
+        Serial.println("CRC is not valid!");
+    }
+
+    dallas_sen.reset();
+    dallas_sen.select(addr);
+    dallas_sen.write(0x44, 1);
+
+    delay(1000);
+
+    present = dallas_sen.reset();
+    dallas_sen.select(addr);
+    dallas_sen.write(0xBE);
+
+    for(int i = 0; i < 9; i++)
+    {
+        data[i] = dallas_sen.read();
+
+        /* DEBUG */
+        //Serial.print(data[i], HEX);
+        //Serial.print(" ");
+    }
+    
+    /* Convert data to actual temperature */
+
+    int16_t raw = (data[1] << 8) | data[0];
+    if(type_s)
+    {
+        /* 9 bit resolution default */
+        raw = raw << 3;
+        /* Gives full 12 bit resolution */
+        if(data[7] == 0x10)
+        {
+            raw = (raw &0xFFF0) + 12 - data[6];
+        }
+    }
+    else
+    {
+        byte cfg = (data[4] &0x60);
+
+        /* At lower res, the low bits are undefined, so let's zero them */
+        /* 9 bit resolution, 93.75 ms */
+        if(cfg == 0x00)
+        {
+            raw = raw &~7;
+        }
+        /* 10 bit resolution, 187.5 ms */
+        else if(cfg == 0x20)
+        {
+            raw = raw &~3;
+        }
+        /* 11 bit resolution, 375 ms */
+        else if(cfg == 0x40)
+        {
+            raw = raw &~1;
+        }
+    }
+
+    /* Return data in celsius */
+    celsius = (int16_t)raw/16.0;
+
+    return celsius;
+    
+    /* Returns data in fahrenheit */
+    //fahrenheit = celsius * 1.8 + 32.0;
+    //return fahrenheit;
+}
+
 }
 
