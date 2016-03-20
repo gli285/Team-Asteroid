@@ -26,7 +26,7 @@ void Sensors_init(void)
 {
 	bmp085.begin();
     ina219_Solar.begin();	
-    dallas_sen.begin();
+    oneWire.begin();
 }
 
 /********************************
@@ -68,7 +68,7 @@ int Sensors_samplePressurepa(void)
  * ******************************/	
 int Sensors_samplePanelmV(void)
 {
-	int value = 2*analogRead(_PIN_SOLAR_v)*5000.0/1023;
+	int value = 2*analogRead(_PIN_SOLAR_V)*5000.0/1023;
 	return value;
 }
 
@@ -111,14 +111,14 @@ float Sensors_sampleTemperaturedecic(void)
     byte i;
     byte present = 0;
     byte type_s;
-    bute data[12];
+    byte data[12];
     byte addr[8];
     float celsius, fahrenheit;
 
-    if(!dallas_sen.search(addr))
+    if(!oneWire.search(addr))
     {
         Serial.println();
-        dallas_sen.reset_search();
+        oneWire.reset_search();
     }
 
     if(OneWire::crc8(addr, 7) != addr[7])
@@ -126,19 +126,19 @@ float Sensors_sampleTemperaturedecic(void)
         Serial.println("CRC is not valid!");
     }
 
-    dallas_sen.reset();
-    dallas_sen.select(addr);
-    dallas_sen.write(0x44, 1);
+    oneWire.reset();
+    oneWire.select(addr);
+    oneWire.write(0x44, 1);
 
     delay(1000);
 
-    present = dallas_sen.reset();
-    dallas_sen.select(addr);
-    dallas_sen.write(0xBE);
+    present = oneWire.reset();
+    oneWire.select(addr);
+    oneWire.write(0xBE);
 
     for(int i = 0; i < 9; i++)
     {
-        data[i] = dallas_sen.read();
+        data[i] = oneWire.read();
 
         /* DEBUG */
         //Serial.print(data[i], HEX);

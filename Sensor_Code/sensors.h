@@ -39,3 +39,5 @@ int Sensors_samplePanelmV(void);
 int Sensors_sampleHumiditypct(void);
 int Sensors_sampleSolarIrrmV(void);
 float Sensors_sampleTemperaturedecic(void);
+
+#endif
