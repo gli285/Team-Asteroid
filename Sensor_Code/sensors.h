@@ -35,7 +35,7 @@
 void Sensors_init(void);
 int Sensors_sampleBatterymV(void);
 int Sensors_samplePressurepa(void);
-int Sensors_samplePanelmV(void)
+int Sensors_samplePanelmV(void);
 int Sensors_sampleHumiditypct(void);
 int Sensors_sampleSolarIrrmV(void);
 float Sensors_sampleTemperaturedecic(void);
