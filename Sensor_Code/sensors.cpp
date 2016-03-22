@@ -37,9 +37,9 @@ void Sensors_init(void)
  * Description: Checks battery voltage
  *
  * ******************************/
-int Sensors_sampleBatterymV(void)
+uint16_t Sensors_sampleBatterymV(void)
 {
-	int value = analogRead(_PIN_BATT_V)*5000.0/1023;
+	uint16_t value = analogRead(_PIN_BATT_V)*5000.0/1023;
 	return value;
 }
 
@@ -52,9 +52,9 @@ int Sensors_sampleBatterymV(void)
  * Description: Checks the current Pressure
  *
  * ******************************/
-int Sensors_samplePressurepa(void)
+uint32_t Sensors_samplePressurepa(void)
 {
-	int value = 0;
+	uint32_t value = 0;
 	value = bmp085.readPressure();
 	return value;
 }
@@ -66,9 +66,9 @@ int Sensors_samplePressurepa(void)
  * Description: Checks the solar panel voltage 
  *
  * ******************************/	
-int Sensors_samplePanelmV(void)
+uint16_t Sensors_samplePanelmV(void)
 {
-	int value = 2*analogRead(_PIN_SOLAR_V)*5000.0/1023;
+	uint16_t value = 2*analogRead(_PIN_SOLAR_V)*5000.0/1023;
 	return value;
 }
 
@@ -80,9 +80,9 @@ int Sensors_samplePanelmV(void)
  * Description: Checks the current Humidity
  *
  * ******************************/	
-int Sensors_sampleHumiditypct(void)
+uint16_t Sensors_sampleHumiditypct(void)
 {
-	int value = sht1x.readHumidity();
+	uint16_t value = sht1x.readHumidity();
 	return value;
 }	
 
@@ -93,9 +93,9 @@ int Sensors_sampleHumiditypct(void)
  * Description: Checks the solar Irradiance level
  *
  * ******************************/	
-int Sensors_sampleSolarIrrmV(void)
+uint16_t Sensors_sampleSolarIrrmV(void)
 {
-	int value = analogRead(_PIN_APOGEE_V)*5000.0/1023;
+	uint16_t value = analogRead(_PIN_APOGEE_V)*5000.0/1023;
 	return value;
 }
 
@@ -106,14 +106,14 @@ int Sensors_sampleSolarIrrmV(void)
  * Description: Checks the current temperature
  *
  * ******************************/	
-float Sensors_sampleTemperaturedecic(void)
+int16_t Sensors_sampleTemperaturedecic(void)
 {
     byte i;
     byte present = 0;
     byte type_s;
     byte data[12];
     byte addr[8];
-    float celsius, fahrenheit;
+    int16_t celsius, fahrenheit;
 
     if(!oneWire.search(addr))
     {

@@ -33,11 +33,11 @@
 
 /* Prototypes */
 void Sensors_init(void);
-int Sensors_sampleBatterymV(void);
-int Sensors_samplePressurepa(void);
-int Sensors_samplePanelmV(void);
-int Sensors_sampleHumiditypct(void);
-int Sensors_sampleSolarIrrmV(void);
-float Sensors_sampleTemperaturedecic(void);
+uint16_t Sensors_sampleBatterymV(void);
+uint32_t Sensors_samplePressurepa(void);
+uint16_t Sensors_samplePanelmV(void);
+uint16_t Sensors_sampleHumiditypct(void);
+uint16_t Sensors_sampleSolarIrrmV(void);
+int16_t Sensors_sampleTemperaturedecic(void);
 
 #endif
