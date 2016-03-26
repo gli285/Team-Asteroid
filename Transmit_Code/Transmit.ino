@@ -56,15 +56,15 @@ void loop()
     delay(500);
 
 /*
-    /* Check health and run appropriate routine */
+    //Check health and run appropriate routine
     if(chkHealth() == NORMAL || chkHealth() == GOOD_SOLAR)
     {
-        /* Voltages are good to operate normally */
+        // Voltages are good to operate normally 
         Normal_Routine(&count);
     }
     else
     {
-        /* Voltages are not good, operate in powersave mode */
+        // Voltages are not good, operate in powersave mode 
         PowerSave_Routine();
     }
 */

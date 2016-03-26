@@ -6,7 +6,7 @@
 #ifndef SCHEMA_H
 #define SCHEMA_H
 
-#define MAX_SIZE 250
+#define MAX_SIZE 55 
 /* Pin configuations for ATMEGA 328P Microcontroller */
 
 /* Receiver and transmitter pins */
@@ -23,7 +23,7 @@
 
 /* Humidity */
 #define _PIN_HUMID_CLK 7
-#define _PIN_HUMID_CLK 8
+#define _PIN_HUMID_DATA 8
 
 /* Solar Panel and Battery Voltage */
 #define _PIN_SOLAR_V A1
@@ -39,12 +39,12 @@ typedef struct {
     uint16_t address;	       	// Address of Arduino	
     uint32_t uptime_ms;	       	// Time since start of program
     uint8_t n;		           	// Number of data points in packet 0..30
-    uint16_t batt_mv[15];   	// Battery Voltage (in milli volts)
-    uint16_t panel_mv[15];  	// Panel Voltage (in milli volts)
+    uint16_t batt_mv[4];   	// Battery Voltage (in milli volts)
+    uint16_t panel_mv[4];  	// Panel Voltage (in milli volts)
     uint32_t bmp085_press_pa;	// Pressure Value (in pascals)
     int16_t bmp085_temp_decic;  // Temperature Value (in celsius)
     uint16_t humidity_centi_pct; // Humidity value (centi_pascals)
-    uint16_t apogee_w_m2[60];    // Solar Irradiance (millivolts)
+    uint16_t apogee_w_m2[4];    // Solar Irradiance (millivolts)
     uint16_t overflow_num;       // Number of times function millis() overflowed
 } schema_1;
 

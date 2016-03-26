@@ -24,7 +24,7 @@ Adafruit_INA219 ina219_Solar;
  * ******************************/
 void Sensors_init(void)
 {
-	bmp085.begin();
+    bmp085.begin();
     ina219_Solar.begin();	
     dallas_sen.begin();
 }
