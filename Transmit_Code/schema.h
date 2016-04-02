@@ -6,9 +6,10 @@
 #ifndef SCHEMA_H
 #define SCHEMA_H
 
-#define MAX_SIZE 55 
-/* Pin configuations for ATMEGA 328P Microcontroller */
+#define MAX_SIZE 100 
 
+
+/* Pin configuations for ATMEGA 328P Microcontroller */
 /* Receiver and transmitter pins */
 #define _PIN_RX 0
 #define _PIN_TX 1
@@ -35,18 +36,16 @@
 
 /* Struct for binary packet transfer */
 typedef struct {
-    uint16_t schema;        // Schema number
+    uint16_t schema = 297;        // Schema number
     uint16_t address;	       	// Address of Arduino	
     uint32_t uptime_ms;	       	// Time since start of program
-    uint8_t n;		           	// Number of data points in packet 0..30
-    uint16_t batt_mv[4];   	// Battery Voltage (in milli volts)
-    uint16_t panel_mv[4];  	// Panel Voltage (in milli volts)
+    uint16_t batt_mv[6];   	// Battery Voltage (in milli volts)
+    uint16_t panel_mv[6];  	// Panel Voltage (in milli volts)
     uint32_t bmp085_press_pa;	// Pressure Value (in pascals)
     int16_t bmp085_temp_decic;  // Temperature Value (in celsius)
     uint16_t humidity_centi_pct; // Humidity value (centi_pascals)
-    uint16_t apogee_w_m2[4];    // Solar Irradiance (millivolts)
-    uint16_t overflow_num;       // Number of times function millis() overflowed
-} schema_1;
+    uint16_t apogee_w_m2[20];    // Solar Irradiance (millivolts)
+} schema_296_full;
 
 /* Struct for health check */
 typedef struct {

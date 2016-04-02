@@ -21,7 +21,7 @@
 #include <Adafruit_BMP085.h>
 
 /* Global Variable for Packet */
-schema_1 G_Packet;
+schema_296_full G_Packet;
 //schema_health G_health;
 
 /* Global counter */

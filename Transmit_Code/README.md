@@ -1,6 +1,5 @@
 # Transmit Code Directory
-
-Used to test the XBee. Contains basic operations of the tramsit module. This only tests tramsmitting hard-coded packets on each board to an XBee connected to XCTU. Requires the XBees to be configured correctly and on the same network. 
+Used to test the XBee. Contains basic operations of the tramsit module. This only tests tramsmitting hard-coded packets on each board to an XBee connected to XCTU. Requires the XBees to be configured correctly and on the same network. Also enables testing with configured sensor functions. 
 
 # Materials
 

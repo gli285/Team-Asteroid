@@ -13,7 +13,7 @@
 #define TRANSMIT_H
 
 /* Global variable for packet */
-extern schema_1 G_Packet;
+extern schema_296_full G_Packet;
 
 /* Packet Clear */
 void Packet_Clear();
