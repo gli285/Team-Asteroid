@@ -50,13 +50,9 @@ void Packet_Construct()
     {
       j = i/10;
       k = i/3;
-
-      /* Sensors_sampleBatterymV(void);
-
-         Sensors_samplePanelmV(void); */
       
-      G_Packet.batt_mv[j] = 30; 
-      G_Packet.panel_mv[j] = 20;
+      G_Packet.batt_mv[j] = Sensors_sampleBatterymV();
+      G_Packet.panel_mv[j] = Sensors_samplePanelmV(); 
       G_Packet.apogee_w_m2[k] = Sensors_sampleSolarIrrmV();
     }
     G_Packet.humidity_centi_pct = Sensors_sampleHumiditypct();
