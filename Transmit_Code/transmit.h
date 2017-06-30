@@ -1,4 +1,12 @@
-/* transmit.h */
+/******************************************
+ *
+ *    File: transmit.h
+ *    REIS Weatherbox Firmware
+ *
+ *    File that contains the prototypes for
+ *         the XBee module.
+ *
+ *******************************************/
 
 #include "schema.h"
 #include "sensors.h"

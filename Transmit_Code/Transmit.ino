@@ -1,4 +1,9 @@
-/* Transmit.ino */
+/********************************
+*   File: Transmit.ino
+*   REIS Weatherbox Firmware
+*
+*   Test driver for XBee packet sending
+********************************/
 
 /* Program libraries */
 #include "transmit.h"

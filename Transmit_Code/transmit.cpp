@@ -1,4 +1,12 @@
-/* transmit.cpp */
+/******************************************
+ *
+ *    File: transmit.cpp
+ *    REIS Weatherbox Firmware
+ *
+ *    File that contains the function definitions
+ *         for the XBee module.
+ *
+ *******************************************/
 
 /* Program Libraries */
 #include "transmit.h"
@@ -7,7 +15,14 @@
 #include <EEPROM.h>
 #include <XBee.h>
 
-/* Clear the packet */
+/********************************
+ *
+ * Name:        Packet_Clear
+ * Returns:     Nothing
+ * Parameter:   Nothing
+ * Description: Clear data in the XBee packet
+ *
+ * ******************************/
 void Packet_Clear()
 {
     /* Variables used for indexes */
@@ -32,6 +47,14 @@ void Packet_Clear()
     }
 }
 
+/********************************
+ *
+ * Name:        Packet_Construct
+ * Returns:     Nothing
+ * Parameter:   Nothing
+ * Description: Insert sensor data into the XBee packet
+ *
+ * ******************************/
 void Packet_Construct()
 {
     int j, k;
@@ -61,6 +84,14 @@ void Packet_Construct()
     
 }
 
+/********************************
+ *
+ * Name:        Packet_Transmit
+ * Returns:     Nothing
+ * Parameter:   Nothing
+ * Description: Transmit sensor packet data
+ *
+ * ******************************/
 void Packet_Transmit()
 {
     /* Create Xbee object */
@@ -85,6 +116,7 @@ void Packet_Transmit()
     /* Transfer information into payload */
     memcpy(payload, &G_Packet, len);
 
+    /* Send payload */
     ZBTxRequest zbTx = ZBTxRequest(addr64, payload, len);
     xbee.send(zbTx);
 }
