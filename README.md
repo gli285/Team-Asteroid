@@ -4,7 +4,9 @@ SCEL Weatherbox prototyping team
 Weatherbox firmware
 
 `Full_Integration` contains integrated sensor and transmit modules.
+
 `Sensor_Code` Isolated module for testing sensor readings
+
 `Transmit_Code` Isolated module for testing the XBee
 
 Upload `REIS_Weatherbox.ino` in the Arduino IDE for the working weatherbox code. 
