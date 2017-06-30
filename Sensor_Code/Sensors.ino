@@ -19,7 +19,7 @@
 #include <Adafruit_INA219.h>
 #include <Adafruit_BMP085.h>
 
-/* Setup to initialize system. Initialies sensors, runs once */
+/* Setup to initialize system. Initialize sensors, only runs once */
 void setup()
 {
     Sensors_init();
@@ -48,7 +48,6 @@ void loop()
     delay(1000);
     Temp = Sensors_sampleTemperaturedecic();
     delay(1000);
-
 
     Serial.println("***** Sensor Readings *****");
     

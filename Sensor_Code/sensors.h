@@ -1,4 +1,12 @@
-/* sensors.h */
+/******************************************
+ *
+ *    File: sensors.h
+ *    REIS Weatherbox Firmware
+ *
+ *    Contains pin configurations and prototypes
+ *    for various weatherbox sensor modules.
+ *
+ *******************************************/
 
 /* Check for previous includes */
 #ifndef SENSORS_H
