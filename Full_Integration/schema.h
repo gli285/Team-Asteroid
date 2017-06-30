@@ -1,4 +1,13 @@
-/* schema.h */
+/******************************************
+ *
+ *    File: schema.h
+ *    REIS Weatherbox Firmware
+ *
+ *    File that contains the pin configurations
+ *         for the sensors and schemas for the
+ *         weatherbox packets.
+ *
+ *******************************************/
 
 #include <stdint.h>
 
@@ -6,8 +15,7 @@
 #ifndef SCHEMA_H
 #define SCHEMA_H
 
-#define MAX_SIZE 100 
-
+#define MAX_SIZE 100
 
 /* Pin configuations for ATMEGA 328P Microcontroller */
 /* Receiver and transmitter pins */
@@ -32,7 +40,6 @@
 
 /* Solar Irradiance */
 #define _PIN_SOLAR_IRR A2
-
 
 /* Struct for binary packet transfer */
 typedef struct {

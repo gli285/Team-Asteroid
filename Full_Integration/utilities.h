@@ -2,6 +2,7 @@
  *     
  *     File: utilities.h
  *     REIS Weatherbox Firmware
+ *
  *     Header file for utility functions
  *     
  ******************************************/

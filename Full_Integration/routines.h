@@ -3,9 +3,8 @@
  *    File: routines.h
  *    REIS Weatherbox Firmware
  *
- *    Main file to contain the routines in
- *         which to operate in for the 
- *         weatherbox.
+ *    Main file that contains various routines
+ *         for weatherbox operation.
  *    
  *******************************************/
 

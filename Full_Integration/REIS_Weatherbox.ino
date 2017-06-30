@@ -117,7 +117,7 @@ void setup(){
  ********************************************/
 void loop(){
 
-    /*Check health & run appropriate routine */
+    /* Check health & run appropriate routine */
     if(chkHealth() == NORMAL || chkHealth() == GOOD_SOLAR){
 
         /* Voltages are at a good level to operate normally */

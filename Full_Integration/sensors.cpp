@@ -1,4 +1,12 @@
-/* sensors.cpp */
+/******************************************
+ *
+ *    File: sensors.cpp
+ *    REIS Weatherbox Firmware
+ *
+ *    Contains definitions for various
+ *        weatherbox sensor modules.
+ *
+ *******************************************/
 
 #include "sensors.h"
 
@@ -43,7 +51,6 @@ uint16_t Sensors_sampleBatterymV(void)
 	return value;
 }
 
-
 /********************************
  *
  * Name:        Sensors_samplePressure
@@ -60,8 +67,8 @@ uint32_t Sensors_samplePressurepa(void)
 }
 
 /********************************
- * Name:  	Sensors_samplePanelmV
- * Returns: 	Panel Voltage (mv)
+ * Name:  	    Sensors_samplePanelmV
+ * Returns: 	  Panel Voltage (mv)
  * Parameter: 	Nothing
  * Description: Checks the solar panel voltage 
  *
@@ -72,10 +79,9 @@ uint16_t Sensors_samplePanelmV(void)
 	return value;
 }
 
-
 /********************************
- * Name:  	Sensors_sampleHumiditypct
- * Returns: 	Humidity (pct)
+ * Name:  	    Sensors_sampleHumiditypct
+ * Returns: 	  Humidity (pct)
  * Parameter: 	Nothing
  * Description: Checks the current Humidity
  *
@@ -87,8 +93,8 @@ uint16_t Sensors_sampleHumiditypct(void)
 }	
 
 /********************************
- * Name:  	Sensors_sampleSolarIrrmV
- * Returns: 	Solar Irradiance voltage (mV)
+ * Name:  	    Sensors_sampleSolarIrrmV
+ * Returns: 	  Solar Irradiance voltage (mV)
  * Parameter: 	Nothing
  * Description: Checks the solar Irradiance level
  *
@@ -100,8 +106,8 @@ uint16_t Sensors_sampleSolarIrrmV(void)
 }
 
 /********************************
- * Name:  	Sensors_sampleTemperaturedecic
- * Returns: 	Temperature (C)
+ * Name:  	    Sensors_sampleTemperaturedecic
+ * Returns: 	  Temperature (C)
  * Parameter: 	Nothing
  * Description: Checks the current temperature
  *
